@@ -7,7 +7,7 @@ export default function Home() {
     
 
     return (
-        <div>
+        <div class="home">
         <section>
           <div class="welcome">
           <div class="welcome__text">

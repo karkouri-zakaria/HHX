@@ -74,15 +74,27 @@ exports.getUsers = async (req, res) => {
       res.status(500).json({ success: false, message: 'Server error' });
     }
   };
-  
+
   exports.getUser = async (req, res) => {
-    const User = await User.findOne({
-      _id: req.params.id,
-    })
-    res.status(200).json({
-      success: true,
-      User,
-    })
+    try {
+      const user = await User.findOne({ _id: req.params.id })
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: "User not found"
+        })
+      }
+      res.status(200).json({
+        success: true,
+        user
+      })
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({
+        success: false,
+        message: "Server error"
+      })
+    }
   }
   
   exports.addUser = async (req, res) => {

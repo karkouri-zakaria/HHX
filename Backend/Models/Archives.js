@@ -10,7 +10,7 @@ const archieveSchema = new mongoose.Schema({
       ref: 'User',
       required: true
     },
-    id_to: {
+  id_to: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true

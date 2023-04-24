@@ -27,7 +27,6 @@ export default function Search() {
             <option value="">Choose a table</option>
             <option value="Users">Users</option>
             <option value="DMs">DMs</option>
-            <option value="Archives">Reports</option>
           </select>
         </form>
       </div>

@@ -69,8 +69,9 @@ export default function Navbar (){
                 </Link>
                 <ul className="navbar-links">
                     <li><button>{localStorage.getItem("name")}</button></li>
-                    {isAuthenticated && (<Link to="/Search"><li><button>Search</button></li></Link>)}
                     {!isAuthenticated && (<li><button onClick={handleModalOpen}>Login</button></li>)}
+                    {isAuthenticated && (<Link to="/Search"><li><button>Search</button></li></Link>)}
+                    {isAuthenticated && (<Link to="/Mail"><li><button>Mail</button></li></Link>)}
                     {isAuthenticated && (<li><button onClick={handleLogout}>Logout</button></li>)}
                 </ul>
                 </nav>

@@ -18,6 +18,7 @@ const AuthContextProvider = (props) => {
     localStorage.setItem("token", data.token);
     localStorage.setItem("id", data.user._id);
     localStorage.setItem("name", data.user.Nom)
+    localStorage.setItem("role", data.user.Fonction)
     setIsAuthenticated(true);
   };
 
@@ -25,6 +26,7 @@ const AuthContextProvider = (props) => {
     localStorage.removeItem("token");
     localStorage.removeItem("id")
     localStorage.removeItem("name")
+    localStorage.removeItem("role")
     setIsAuthenticated(false);
     setUser(null);
   };

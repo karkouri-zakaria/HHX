@@ -25,7 +25,7 @@ const DMs = () => {
     fetchData(dms);
   }, [currentPage, perPage]);
 
-  const handlePageChange = (pageNumber) => {
+    const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
@@ -62,8 +62,19 @@ const filteredDMs = dms.filter((dm) => {
     } 
     return DesignationMatch || MarqueMatch || ServiceMatch || idMatch;
   });
-
   
+  const getStatusClass = (etat) => {
+    switch (etat) {
+      case 0:
+        return "open";
+      case 1:
+        return "in-progress";
+      case 2:
+        return "dead";
+      default:
+        return "";
+    }
+  }
 
   return (
     <div className='dms'>
@@ -108,7 +119,9 @@ const filteredDMs = dms.filter((dm) => {
               <td>{dm.Designation}</td>
               <td>{dm.Marque}</td>
               <td>{dm.Service}</td>
-              <td>{dm.Etat}</td>
+              <p>
+                <span className={getStatusClass(dm.Etat)}></span>
+              </p>
               <td>
                 <Link to={`/DM/${dm._id}`}>
                   <button>View more</button>

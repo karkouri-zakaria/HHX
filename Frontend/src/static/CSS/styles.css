@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 4%;
   padding: 0;
   box-sizing: border-box;
@@ -57,12 +57,6 @@ body {
   gap: 16px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .navbar-logo {
   font-size: 24px;
   font-weight: bold;
@@ -88,11 +82,11 @@ ul {
   color: #2596be;
 }
 
-button {
+.navbar button {
   background-color: transparent;
   border: none;
   color: rgb(255, 255, 255);
-  padding: 6px 12px;
+  padding: 6px 22px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -104,29 +98,32 @@ button {
   text-shadow: 0 0 5px #000000;
 }
 
-button:hover {
-  background-color: #2596be;
+.navbar button:hover {
+  color: #2596be;
 }
 
-button:active {
-  background-color: #2596be;
+.navbar button:active {
+  color: #2596be;
   transform: translateY(1px);
 }
 
+.navbar li{
+  list-style: none;
+}
 
-section {
+ .home section {
   margin-top: 10px;
   padding: 10px 0;
   text-align: center;
   background-color: #f3f8f9;
 }
 
-section > h1 {
+.home section > h1 {
   font-size: 3rem;
   margin-bottom: 20px;
 }
 
-section > p {
+.home section > p {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 10px;
@@ -140,6 +137,9 @@ section > p {
 }
 .welcome__text {
   flex-basis: 40%;
+  animation-name: slideInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .welcome__text h2 {
@@ -155,10 +155,35 @@ section > p {
 .welcome__img {
   max-width: 50%;
   flex-basis: 40%;
+  animation-name: slideInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .welcome__img img{
   width: 100%;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 
@@ -194,6 +219,15 @@ section > p {
 
 .card-content {
   padding: 15px;
+}
+
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card h2 {
@@ -806,4 +840,50 @@ footer {
     text-decoration: underline;
     font-weight: bold;
     text-align: center;
+  }
+
+  .tab-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid black;margin-top: 2  %;
+  }
+  
+  .tab {
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #000;
+    border-bottom: 3px solid transparent;
+  }
+  
+  .tab.active {
+    border-bottom: 2px solid #000;
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  .mail_card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* round the corners */
+    padding: 10px;
+  }
+  
+  .mail_card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .inner_mail_card {
+    background-color: #fff; /* set the background color */
+    padding: 10px;
   }

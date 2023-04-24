@@ -8,6 +8,7 @@ import AuthContextProvider from './Components/Control Panel/Auth-Context';
 import styles from "./static/CSS/styles.css"
 import Authentification from './Components/Control Panel/Authentification';
 import Navbar from './Components/Home/Navbar';
+import Mail from './Components/Notifications/Mail';
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
     <Route path="/DM/:id" element={<DMPage />} />
     <Route path="*" element={<Navigate to="/" />} />
     <Route path="/Report/:id" element={<Report/>} />
+    <Route path="/Mail" element={<Mail/>} />
     
     </Routes>
     <footer className="footer">

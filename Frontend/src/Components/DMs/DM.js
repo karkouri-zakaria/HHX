@@ -127,12 +127,16 @@ const DMPage = () => {
           <button onClick={handleBack}>
                 Back
             </button>
+            {localStorage.getItem("role")!=="BioMed" &&(
+            <div>
             <button onClick={handleEdit}>
               Edit
             </button>
             <button onClick={handleDelete}>
                 Delete
             </button>
+            </div>
+            )}
             <button onClick={handleReport}>
                 Report
             </button>
