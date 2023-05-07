@@ -10,10 +10,15 @@ app.listen(PORT, () => {
 console.log(`Server running on port ${PORT}`);
 });
 mongoose.set('strictQuery', true);
-mongoose.connect(DB,() => { 
-    console.log(`Server with DB ${DB}`);
+
+mongoose.connect(DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
-
-
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', function() {
+  console.log(`MongoDB connected! with : ${DB}`);
+});
  
